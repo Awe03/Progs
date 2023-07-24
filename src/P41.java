@@ -7,7 +7,7 @@ class P41 {
         Scanner sc = new Scanner(System.in);
         int[] arr = new int[10];
         int even = 0, odd = 0;
-        System.out.println("Enter 10 non-zero numbers:");
+        System.out.println("Enter 10 non-zero numbers: ");
         for (int i = 0; i < 10; i++) {
             arr[i] = sc.nextInt();
             if (arr[i] % 2 == 0) even++;
