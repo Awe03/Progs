@@ -13,6 +13,5 @@ class P21 {
             else res+=c;
         }
         System.out.println(res);
-        sc.close();
     }
 }

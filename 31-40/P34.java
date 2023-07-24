@@ -19,6 +19,5 @@ class P34 {
         System.out.println("I: " + i);
         System.out.println("O: " + o);
         System.out.println("U: " + u);
-        sc.close();
     }
 }

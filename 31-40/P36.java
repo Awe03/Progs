@@ -15,6 +15,5 @@ class P36 {
         }
         rev += str;
         System.out.println(rev);
-        sc.close();
     }
 }

@@ -15,6 +15,5 @@ class P33 {
                 }
             }
         }
-        sc.close();
     }
 }

@@ -18,6 +18,5 @@ class P20 {
         System.out.println("Numbers: " + n);
         System.out.println("White spaces: " + w);
         System.out.println("Special characters: " + s);
-        sc.close();
     }
 }

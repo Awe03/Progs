@@ -24,6 +24,5 @@ class P3 {
         System.out.print("Enter r: ");
         int r = sc.nextInt();
         obj.PrintResult(r, n);
-        sc.close();
     }
 }

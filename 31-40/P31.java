@@ -15,6 +15,5 @@ class P31 {
             }
         }
         System.out.println("New string: " + newStr);
-        sc.close();
     }
 }

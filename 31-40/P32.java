@@ -18,6 +18,5 @@ class P32 {
             }
         }
         System.out.println(" " + name.substring(n + 1));
-        sc.close();
     }
 }

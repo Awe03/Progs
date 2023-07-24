@@ -10,6 +10,5 @@ class P19 {
         if (!Character.isLetter(c)) throw new IllegalArgumentException("Not an alphabet");
         if (Character.isUpperCase(c)) System.out.println(Character.toLowerCase(c));
         else System.out.println(Character.toUpperCase(c));
-        sc.close();
     }
 }

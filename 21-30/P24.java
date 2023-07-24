@@ -14,6 +14,5 @@ class P24 {
         for (int i = 0; i < s.length(); i++) {
             System.out.println(s.substring(0, i + 1));
         }
-        sc.close();
     }
 }

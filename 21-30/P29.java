@@ -15,6 +15,5 @@ class P29 {
             } else newStr += str.charAt(i);
         }
         System.out.println("New string: " + newStr);
-        sc.close();
     }
 }

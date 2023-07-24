@@ -30,6 +30,5 @@ class P1 {
         char ch = sc.next().charAt(0);
         P1 obj = new P1();
         obj.check(x, y, ch);
-        sc.close();
     }
 }
