@@ -3,7 +3,7 @@
 // The alphabets present before the vowel are shifted towards the end followed by "AY".
 import java.util.Scanner;
 
-class P37 {
+class P37i {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a word: ");
@@ -15,5 +15,35 @@ class P37 {
         }
         System.out.println(w.substring(i) + w.substring(0, i) + "AY");
         sc.close();
+    }
+}
+
+
+// Write a program to accept a string and print the word containing the maximum number of vowels
+// [NOTE: SCANNER IS ALREADY IMPORTED ABOVE IN THIS CASE, HENCE IT'S NOT WRITTEN HERE. YOU'RE EXPECTED TO IMPORT IT IF WRITING SEPARATELY]
+class P37ii {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine() + " ";
+        String maxWord = "";
+        int maxCount = 0, prevWordIndex = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == ' ') {
+                int vowels = 0;
+                String word = str.substring(prevWordIndex, i);
+                for (int j = 0; j < word.length(); j++) {
+                    if ("AEIOUaeiou".indexOf(word.charAt(j)) != -1) {
+                        vowels++;
+                    }
+                }
+                if (vowels > maxCount) {
+                    maxWord = word;
+                    maxCount = vowels;
+                }
+                prevWordIndex = i + 1;
+            }
+        }
+        System.out.println(maxWord);
     }
 }
