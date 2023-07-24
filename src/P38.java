@@ -11,7 +11,7 @@ class P38 {
             arr[i] = sc.nextInt();
             sum += arr[i];
         }
-        int average = sum / 10;
+        double average = (double) sum / 10;
         for (int i = 0; i < 10; i++) {
             System.out.println(arr[i]);
         }
