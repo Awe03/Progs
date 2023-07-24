@@ -12,5 +12,6 @@ class P39 {
         for (int i = 4; i >= 0; i--) {
             System.out.println(arr[i]);
         }
+        sc.close();
     }
 }

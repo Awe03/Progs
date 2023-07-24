@@ -45,5 +45,6 @@ class P37ii {
             }
         }
         System.out.println("Word with max vowels: " + maxWord);
+        sc.close();
     }
 }
