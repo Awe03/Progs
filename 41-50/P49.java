@@ -23,6 +23,5 @@ class P49 {
         if (!found) {
             System.out.println("Not found in the list");
         }
-        sc.close();
     }
 }

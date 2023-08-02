@@ -26,6 +26,5 @@ class P51 {
         if (!found) {
             System.out.println("Country not found");
         }
-        sc.close();
     }
 }
