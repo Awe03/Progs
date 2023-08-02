@@ -6,12 +6,12 @@ class P50 {
         Scanner sc = new Scanner(System.in);
         String[] names = new String[5];
         System.out.println("Enter 5 names: ");
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < names.length; i++) {
             names[i] = sc.nextLine();
         }
         System.out.println("Enter name to be searched: ");
         String str = sc.nextLine();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < names.length; i++) {
             if (names[i].equals(str)) {
                 System.out.println(names[i] + "found at index " + i);
                 break;
