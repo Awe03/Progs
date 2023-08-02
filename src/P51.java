@@ -1,7 +1,6 @@
 // Write a program to input name of 5 countries and their capitals in 2 different arrays
 // Also input a country name to be searched in the given array using a linear search
 // If the country is present then print it's capital name, else print the message "Country not found"
-
 import java.util.Scanner;
 
 class P51 {
