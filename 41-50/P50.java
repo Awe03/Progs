@@ -11,13 +11,11 @@ class P50 {
         }
         System.out.println("Enter name to be searched: ");
         String str = sc.nextLine();
-        int index = 0;
         for (int i = 0; i < 5; i++) {
             if (names[i].equals(str)) {
-                index = i;
+                System.out.println("Found at index " + i);
                 break;
             }
         }
-        System.out.println(names[index] + " found at index " + index);
     }
 }
