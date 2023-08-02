@@ -13,7 +13,7 @@ class P50 {
         String str = sc.nextLine();
         for (int i = 0; i < 5; i++) {
             if (names[i].equals(str)) {
-                System.out.println("Found at index " + i);
+                System.out.println(names[i] + "found at index " + i);
                 break;
             }
         }
