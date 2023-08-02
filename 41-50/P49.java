@@ -13,7 +13,7 @@ class P49 {
         }
         System.out.println("Enter a number to be searched: ");
         int num = sc.nextInt();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < Arr.length; i++) {
             if (Arr[i] == num) {
                 System.out.println("Number present in index " + i);
                 found = true;
