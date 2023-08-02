@@ -22,7 +22,7 @@ class P48 {
             Arr[i] = Arr[index];
             Arr[index] = temp;
         }
-        System.out.print("New surname: ");
+        System.out.print("Surname: ");
         for (int i = 0; i < Arr.length; i++) {
             System.out.print(Arr[i]);
         }

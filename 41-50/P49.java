@@ -5,16 +5,16 @@ import java.util.Scanner;
 class P49 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] arr = new int[10];
+        int[] Arr = new int[10];
         boolean found = false;
         System.out.println("Enter 10 numbers: ");
         for (int i = 0; i < 10; i++) {
-            arr[i] = sc.nextInt();
+            Arr[i] = sc.nextInt();
         }
         System.out.println("Enter a number to be searched: ");
         int num = sc.nextInt();
         for (int i = 0; i < 10; i++) {
-            if (arr[i] == num) {
+            if (Arr[i] == num) {
                 System.out.println("Number present in index " + i);
                 found = true;
                 break;
