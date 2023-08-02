@@ -12,15 +12,15 @@ class P48 {
             Arr[i] = str.charAt(i);
         }
         for (int i = 0; i < Arr.length; i++) {
-            int min = i;
+            int index = i;
             for (int j = i + 1; j < Arr.length; j++) {
-                if (Arr[j] < Arr[min]) {
-                    min = j;
+                if (Arr[j] < Arr[index]) {
+                    index = j;
                 }
             }
             char temp = Arr[i];
-            Arr[i] = Arr[min];
-            Arr[min] = temp;
+            Arr[i] = Arr[index];
+            Arr[index] = temp;
         }
         System.out.print("New surname: ");
         for (int i = 0; i < Arr.length; i++) {
