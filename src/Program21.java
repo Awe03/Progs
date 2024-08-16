@@ -3,6 +3,7 @@
 import java.io.IOException;
 import java.io.FileWriter;
 import java.io.FileReader;
+import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.util.Scanner;
 
@@ -16,7 +17,9 @@ class WriteInput {
             String input = sc.nextLine();
             while (!input.equals(":qa!")) {
                 // Write the input to the file
-                fileWriter.write(input + "\n");
+                PrintWriter printWriter = new PrintWriter(fileWriter);
+                printWriter.println(input);
+                printWriter.flush();
                 input = sc.nextLine();
             }
             fileWriter.close();
