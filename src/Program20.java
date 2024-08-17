@@ -1,98 +1,76 @@
-// This program performs bubble sort and binary search on an inputted // array
+// A transpose of an array is obtained by interchanging the elements of the rows and columns. A class Transarray contains a two dimensional integer array of order [m x n]. The maximum value possible for both ‘m’ and ‘n’ is 20. Design a class Transarray to find the transpose of a given matrix. The details of the members of the class are given below:
+// Data members / Instance variables:
+// •	arr[][]  :  stores the matrix elements
+// •	m  :  integer to store the number of rows
+// •	n  :  integer to store the number of column
+// Member functions / Methods
+// •	TransArray()  :  default constructor
+// •	TransArray(int mm, int nn)  :  to initialize the size of the matrix M = mm, n = nn
+// •	void fillArray()  :  to enter the elements of the matrix
+// •	void transpose(transarray A)  :  to find the transpose of a given matrix
+// •	void disparray()  :  displays the array in a matrix form
+// Specify the class Transarray giving the details of the constructors and other functions. Write the main method to execute the program.
+
 import java.util.Scanner;
 
-class Sort
-{
-	// Initialization of data members
-	int[] arr = new int[10] ;
-	int item = 0 ;
+class Transarray {
+    int[][] arr;
+    int m;
+    int n;
 
-	// In the method inpdata() we input integers to fill the array
-	void inpdata()
-	{
-		// We create a scanner object to obtain input
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter 50 (non duplicate) numbers: ");
-		for (int currentIteration = 0; currentIteration < arr.length; 
-		     currentIteration++)
-		{
-			int input = sc.nextInt();
-			// We have another for loop to check whether it is 
-			// duplicate or not
-			for (int currentIndex = 0; currentIndex < arr.length;
-			     currentIndex++)
-			{
-				if (arr[currentIndex] == input)
-				{
-					System.out.println("Duplicate elements not allowed");
-					// We recall the function
-					inpdata();
-				}
-			}
-			arr[currentIteration] = input;
-		}
-	}
-	// In the method bubsort(), we sort array in ascending order 
-// using bubble sort and then display it
-void bubsort()
-{
-	// Bubble sort
-	for (int currentIteration = 0; currentIteration < arr.length;
-	     currentIteration++)
-	{
-		for (int currentIndex = 0; currentIndex < arr.length - currentIteration - 1; currentIndex++)
-		{
-			if (arr[currentIndex] > arr[currentIndex + 1])
-			{
-				int tempStorage = arr[currentIndex];
-				arr[currentIndex] = arr[currentIndex + 1];
-				arr[currentIndex + 1] = tempStorage;
-			}
-		}
-	}
+    public Transarray() {
+        // Default constructor
+    }
 
-	// We print the sorted array
-	System.out.print("Sorted array: [");
-	for (int currentIndex = 0; currentIndex < arr.length;
-	     currentIndex++)
-	{
-		System.out.print(" " + arr[currentIndex] + " ");
-	}
-	System.out.println("]");
+    public Transarray(int mm, int nn) {
+        m = mm;
+        n = nn;
+        arr = new int[m][n];
+    }
+
+    public void fillArray() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter elements of the matrix:");
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        sc.close();
+    }
+
+    public void transpose(Transarray A) {
+        int[][] transposedArray = new int[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                transposedArray[i][j] = A.arr[j][i];
+            }
+        }
+        A.arr = transposedArray;
+    }
+
+    public void disparray() {
+        System.out.println("Transposed Array:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
 }
 
-// In the function binsearch(), we input the number to search for,
-// search for it and then print it’s index
-void binsearch()
-{
-	Scanner sc = new Scanner(System.in);
-	System.out.println("Enter number to search for: ");
-	item = sc.nextInt();
-
-	// Now we perform binary search
-	int low = 0, high = arr.length - 1;
-	while (high >= low)
-	{
-		int middle = (low + high) / 2;
-	
-		if (arr[middle] > item) high = middle - 1;
-		if (arr[middle] < item) low = middle + 1;
-		else if (arr[middle] == item) 
-		{
-			System.out.println("Item " + item + " is element " + (middle + 1));
-			return;
-		}
-	}
-	System.out.println("Item not found in the list");
-}
-
-// In the main method, we simply create an object of the class
-// and call the functions
-public static void main(String[] args)
-{
-	Sort obj = new Sort();
-	obj.inpdata();
-	obj.bubsort();
-	obj.binsearch();
-}
+public class Program20 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter number of rows: ");
+        int rows = scanner.nextInt();
+        System.out.print("Enter number of columns: ");
+        int columns = scanner.nextInt();
+        Transarray transarray = new Transarray(rows, columns);
+        transarray.fillArray();
+        transarray.transpose(transarray);
+        transarray.disparray();
+        scanner.close();
+    }
 }
