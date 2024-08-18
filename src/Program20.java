@@ -13,22 +13,22 @@
 
 import java.util.Scanner;
 
-class Transarray {
+class TransArray {
     int[][] arr;
     int m;
     int n;
 
-    public Transarray() {
+    TransArray() {
         // Default constructor
     }
 
-    public Transarray(int mm, int nn) {
+    TransArray(int mm, int nn) {
         m = mm;
         n = nn;
         arr = new int[m][n];
     }
 
-    public void fillArray() {
+    void fillArray() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter elements of the matrix:");
         for (int i = 0; i < m; i++) {
@@ -36,10 +36,9 @@ class Transarray {
                 arr[i][j] = sc.nextInt();
             }
         }
-        sc.close();
     }
 
-    public void transpose(Transarray A) {
+    void transpose(TransArray A) {
         int[][] transposedArray = new int[n][m];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
@@ -49,7 +48,7 @@ class Transarray {
         A.arr = transposedArray;
     }
 
-    public void disparray() {
+    void disparray() {
         System.out.println("Transposed Array:");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
@@ -58,19 +57,16 @@ class Transarray {
             System.out.println();
         }
     }
-}
 
-public class Program20 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.print("Enter number of rows: ");
-        int rows = scanner.nextInt();
+        int m = sc.nextInt();
         System.out.print("Enter number of columns: ");
-        int columns = scanner.nextInt();
-        Transarray transarray = new Transarray(rows, columns);
-        transarray.fillArray();
-        transarray.transpose(transarray);
-        transarray.disparray();
-        scanner.close();
+        int n = sc.nextInt();
+        TransArray obj = new TransArray(m, n);
+        obj.fillArray();
+        obj.transpose(obj);
+        obj.disparray();
     }
 }
