@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class WriteBinary {
     public static void main(String[] args) {
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream("data.dat");
+            FileOutputStream fileOutputStream = new FileOutputStream("newdata.dat");
             DataOutputStream dataOutputStream = new DataOutputStream(fileOutputStream);
             Scanner sc = new Scanner(System.in);
             System.out.println("Enter the number of records to write:");
