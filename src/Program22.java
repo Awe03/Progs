@@ -26,3 +26,92 @@ INPUT: STUDY WELL ##
 OUTPUT: INVALID INPUT.
  */
 
+import java.util.Scanner;
+
+class Program22 {
+    // Declaration of instance variables
+    String sentence = "";
+    String wordToDelete = "";
+    int position = 0;
+
+    // In the function input() we accept the sentence, word and position
+    void input() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a sentence: ");
+        sentence = sc.nextLine();
+
+        // Check if sentence ends with valid terminator
+        char lastChar = sentence.charAt(sentence.length() - 1);
+        if (lastChar != '.' && lastChar != '?' && lastChar != '!') {
+            System.out.println("INVALID INPUT.");
+            System.exit(0);
+        }
+
+        System.out.println("Enter the word to be deleted: ");
+        wordToDelete = sc.next();
+        System.out.println("Enter the position of the word: ");
+        position = sc.nextInt();
+    }
+
+    // In the function process() we normalize and delete the word
+    void process() {
+        // Normalize sentence - reduce extra spaces
+        String normalized = "";
+        boolean previousSpace = false;
+
+        for (int i = 0; i < sentence.length(); i++) {
+            char currentChar = sentence.charAt(i);
+
+            if (currentChar == ' ') {
+                if (!previousSpace && !normalized.isEmpty() && i < sentence.length() - 1) {
+                    normalized += currentChar;
+                    previousSpace = true;
+                }
+            } else {
+                normalized += currentChar;
+                previousSpace = false;
+            }
+        }
+
+        // Delete word at specified position
+        String result = "";
+        String currentWord = "";
+        int wordCount = 0;
+        char terminator = normalized.charAt(normalized.length() - 1);
+
+        for (int i = 0; i < normalized.length() - 1; i++) {
+            char currentChar = normalized.charAt(i);
+
+            if (currentChar == ' ') {
+                if (!currentWord.isEmpty()) {
+                    wordCount++;
+                    if (wordCount != position) {
+                        result += currentWord + " ";
+                    }
+                    currentWord = "";
+                }
+            } else {
+                currentWord += currentChar;
+            }
+        }
+
+        // Handle last word
+        if (!currentWord.isEmpty()) {
+            wordCount++;
+            if (wordCount != position) {
+                result += currentWord + " ";
+            }
+        }
+
+        // Add terminator and display
+        result = result.trim() + terminator;
+        System.out.println("OUTPUT: " + result);
+    }
+
+    // In the main method we create an object and call the required functions
+    public static void main(String[] args) {
+        Program22 obj = new Program22();
+        obj.input();
+        obj.process();
+    }
+}

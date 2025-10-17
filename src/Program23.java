@@ -14,7 +14,7 @@ INPUT:
 CODED TEXT : “UHINBY LKKQCH HYLKK”
 SHIFT : 7
 OUTPUT:
-DECODED TEXT : ANOTHER VALUE 
+DECODED TEXT : ANOTHER WINNER
 INPUT:
 CODED TEXT : “RUIJGG EVGGBK SAGG”
 SHIFT : 11
@@ -26,4 +26,76 @@ SHIFT : 29
 OUTPUT:
 INVALID SHIFT VAULE 
  */
+
+import java.util.Scanner;
+
+class Program23 {
+    // Declaration of instance variables
+    String codedText = "";
+    int shift = 0;
+
+    // In the function input() we accept the coded text and shift value
+    void input() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter coded text: ");
+        codedText = sc.nextLine();
+        System.out.println("Enter shift value: ");
+        shift = sc.nextInt();
+    }
+
+    // In the function decode() we validate shift, decode and display the message
+    void decode() {
+        // Validate shift
+        if (shift < 1 || shift > 26) {
+            System.out.println("INVALID SHIFT VALUE");
+            return;
+        }
+
+        // Remove spaces from coded text
+        String cleanedText = "";
+        for (int i = 0; i < codedText.length(); i++) {
+            if (codedText.charAt(i) != ' ') {
+                cleanedText += codedText.charAt(i);
+            }
+        }
+
+        // Decode each character by reversing the shift
+        String decoded = "";
+        for (int i = 0; i < cleanedText.length(); i++) {
+            char currentChar = cleanedText.charAt(i);
+            char decodedChar = (char) (currentChar - (26 - shift + 1));
+
+            // If we go below 'A', wrap around
+            while (decodedChar < 'A') {
+                decodedChar += 26;
+            }
+
+            decoded += decodedChar;
+        }
+
+        // Remove trailing space
+        decoded = decoded.trim();
+
+        // Replace QQ with spaces
+        String decodedText = "";
+        for (int i = 0; i < decoded.length(); i++) {
+            if (i < decoded.length() - 1 && decoded.charAt(i) == 'Q' && decoded.charAt(i + 1) == 'Q') {
+                decodedText += " ";
+                i++;
+            } else {
+                decodedText += decoded.charAt(i);
+            }
+        }
+
+        decodedText = decodedText.trim();
+        System.out.println("DECODED TEXT: " + decodedText);
+    }
+
+    // In the main method we create an object and call the required functions
+    public static void main(String[] args) {
+        Program23 obj = new Program23();
+        obj.input();
+        obj.decode();
+    }
+}
 
